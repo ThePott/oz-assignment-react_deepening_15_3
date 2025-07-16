@@ -1,7 +1,7 @@
 import { useBoardStore } from '../store';
 
 const BoardEditModal = ({ item, onClose }) => {
-  const { updateBoard } = useBoardStore();
+  const updateBoard = useBoardStore((state) => state.updateBoard);
   const handleForm = (e) => {
     e.preventDefault();
 

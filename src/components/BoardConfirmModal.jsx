@@ -1,8 +1,7 @@
-import React from 'react';
 import { useBoardStore } from '../store';
 
 const BoardConfirmModal = ({ onClose, id }) => {
-  const { removeBoard } = useBoardStore();
+  const removeBoard = useBoardStore((state) => state.removeBoard);
   const handleDelete = () => {
     removeBoard(id);
     onClose();

@@ -1,38 +1,27 @@
-## 문제 요구 사항
+- **학습 목표**
+    1. dnd kit library의 사용법을 학습하여 복잡한 칸반보드의 드래그 & 드롭을 구현한다.
+    2. zustand의 추가적인 상태변화를 핸들링하여 zustand의 심화적인 학습을 진행한다.
+    3. 조건부 스타일링을 자유자재로 다루어본다.
 
-### **1. `App.jsx`**
+## 추가 학습할 개념 체크 리스트
 
-- 더이상 **`recoil`**은 사용되지 않습니다. **`npm remove recoli`**를 입력해 **`recoil`** 라이브러리를 삭제 합니다.
-- 기존에 존재하던 **`Recoil`**과 관련된 모든 데이터를 삭제합니다.
-
-### 2. **`store.js`**
-
-- **`useBoardStore`**를 선언하여 **`zustand`**스토어를 생성합니다.
-- **`set`**함수를 사용하여 상태를 업데이트 하는 메서드를 정의합니다.
-- **`addBoard`**  보드를 추가하는 메서드 입니다.
-- **`removeBoard`** `item.id`를 받아 보드를 삭제하는 메서드입니다. `Array.filter`를 활용합니다.
-- **`updateBoard`** `item`  을 받아 `item.id`가 같은 보드의 데이터를 수정하는 메서드입니다. `Array.map`를 활용합니다.
-- **`data`** 보드의 배열을 저장합니다. **초기값은 더이상 존재하지 않고, 빈 배열**입니다. **`[]`**
-- **`persist`** 미들웨어를 사용하여 데이터를 **`localStorage`**에 자동으로 반영되게 구현합니다.
-- **`createJSONStorage`**를 사용하여 데이터를 **`localStorage`**에 저장합니다.
-
-### 3. `Boards.jsx`
-
-- **`useBoardStore`**에서 **`data`**를 가져와 변수로 할당합니다.
-
-### 4. `ControllerDetailModal.jsx`
-
-- **`useBoardStore`**의 **`addBoard`** 를 사용하여 새로운 전역 상태를 추가하여 칸반보드 생성을 가능하게 합니다.
-
-### 5. `BoardEditModal.jsx`
-
-- **`useBoardStore`**의 **`updateBoard`** 를 사용하여 전역 상태를 수정하여 칸반보드 수정을 가능하게 합니다.
-
-### 6. `BoardConfirmModal.jsx`
-
-- **`useBoardStore`**의 **`removeBoard`** 를 사용하여 전역 상태를 삭제하여 칸반보드 삭제를 가능하게 합니다.
-
-
-
----
-해당 답안지는 칸반보드 Chapter 3. 진행시 `clone`하여 사용됩니다. 이점에서 착오가 없도록 주의바랍니다.
+- [ ]  dnd kit을 활용한 drag & drop 구현 방법
+    
+    [**Drag & Drop 구현 가이드**](https://www.notion.so/Drag-Drop-231caf5650aa811bb0cad54f61b141e7?pvs=21)
+    
+- [ ]  3단계 과제 같이 구현해보기
+    
+    [3단계 drag & drop 설명과 함께 구현해보기](https://www.notion.so/3-drag-drop-231caf5650aa81b38bb9c83117ad829d?pvs=21)
+    
+- **dnd-kit 라이브러리?**
+    
+    dnd-kit은 React에서 **드래그 앤 드롭 기능을 쉽게 구현할 수 있게 해주는 라이브러리**입니다.
+    
+    하나하나 차근차근 이해하는 과정이 중요합니다.
+    
+    **✅ dnd-kit의 특징**
+    
+    - **접근성 지원**: 키보드 조작과 스크린 리더 지원
+    - **성능 최적화**: React의 가상 DOM을 활용한 효율적인 렌더링
+    - **유연한 API**: 다양한 드래그 앤 드롭 시나리오 지원
+    - **터치 디바이스 지원**: 모바일 환경에서도 동작

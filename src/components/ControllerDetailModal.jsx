@@ -1,8 +1,7 @@
-import React from 'react';
 import { useBoardStore } from '../store';
 
 const ControllerDetailModal = ({ onClose }) => {
-  const { addBoard } = useBoardStore();
+  const addBoard = useBoardStore((state) => state.addBoard);
 
   const handleForm = (e) => {
     e.preventDefault();
