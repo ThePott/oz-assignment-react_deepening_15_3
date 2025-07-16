@@ -1,3 +1,4 @@
+import { useDroppable } from '@dnd-kit/core';
 import { SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable';
 import { useMemo, useState } from 'react';
 import { useBoardStore } from '../store';
@@ -30,6 +31,14 @@ const Boards = ({ type }) => {
   const [editIsOpen, setEditIsOpen] = useState(false);
   const [selectedId, setSelectedId] = useState(null);
 
+  const { isOver, setNodeRef } = useDroppable({
+    id: type,
+    data: {
+      type: "COLUMN",
+      columnType: type
+    }
+  });
+
   // Detail Modal
   const handleModalOpen = (item) => {
     setItem(item);
@@ -61,7 +70,7 @@ const Boards = ({ type }) => {
   };
 
   return (
-    <div className="w-full flex flex-col">
+    <div className="w-full flex flex-col" ref={setNodeRef}>
       <div className="w-full h-[60px] bg-stone-200 rounded-sm flex items-center justify-center">
         <p className="text-lg font-semibold">{typeToKorean(type)}</p>
       </div>

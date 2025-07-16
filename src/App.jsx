@@ -42,6 +42,13 @@ const App = () => {
     const overData = over.data.current
     if (!curentData || !overData) { return }
 
+    const isOverColumn = overData.type === "COLUMN"
+    if (isOverColumn) {
+      const oldIndex = boardIdArray.indexOf(active.id)
+      boardArray[oldIndex].type = overData.columnType
+      console.log("---- im here")
+    }
+
     const isBoardActive = curentData.type === "BOARD"
     const isOverAnotherBoard = overData.type === "BOARD"
 
@@ -53,9 +60,7 @@ const App = () => {
 
       setBoardArray(newArray)
 
-      if (boardArray[oldIndex].type !== boardArray[newIndex].type) {
-        boardArray[oldIndex].type = boardArray[newIndex].type
-      }
+      boardArray[oldIndex].type = boardArray[newIndex].type
     }
   }
 
@@ -84,7 +89,7 @@ const App = () => {
           <p>Chapter 3. dnd kit</p>
         </header>
         <main className="flex-1 flex flex-col justify-between">
-          <div className="grid grid-cols-3 gap-4 p-4 w-full">
+          <div className="grid grid-cols-3 gap-4 p-4 w-full h-full">
             <Boards type={'todo'} />
             <Boards type={'inprogress'} />
             <Boards type={'done'} />
